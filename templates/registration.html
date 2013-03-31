@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+{{ form.csrf_token }}
+<form method="post" action="/users/register">
+    <legend>Register for HoopDrills</legend>
+    <ul>
+        <li>{{ form.email.label }}{{ form.email }}{{ form.email.errors }}</li>
+        <li>{{ form.password.label }}{{ form.password }}{{ form.password.errors }}</li>
+        <li>{{ form.confirm.label }}{{ form.confirm }}{{ form.confirm.errors }}</li>
+        <li>{{ form.hidden_tag() }}</li>
+        <li><input type="submit" value="Register"></li>
+    </ul>
+</form>
+
+{% endblock %}
