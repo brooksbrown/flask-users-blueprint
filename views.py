@@ -15,7 +15,7 @@ app = Blueprint('users', __name__, template_folder='templates', url_prefix='/use
 def configure_users_blueprint(app):
 	
     login_manager = LoginManager()
-    login_manager.setup_app(app)
+    login_manager.setup_app(app, add_context_processor=True)
 
     @login_manager.user_loader
     def load_user(userid):
