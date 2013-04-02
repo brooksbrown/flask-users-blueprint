@@ -1,7 +1,3 @@
-{% extends "index.html" %}
-
-{% block content %}
-
 {{ form.csrf_token }}
 <form method="post" action="/users/register">
     <legend>Register for HoopDrills</legend>
@@ -13,5 +9,3 @@
         <li><input type="submit" value="Register"></li>
     </ul>
 </form>
-
-{% endblock %}
