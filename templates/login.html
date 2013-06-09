@@ -1,3 +1,6 @@
+{% extends "index.html" %}
+
+{% block content %}
 {{ form.csrf_token }}
 <form method="post" action="/users/login">
   <p>{{ form.email.label }}{{ form.email }}{{ form.email.errors }}</p>
@@ -5,3 +8,4 @@
 	{{ form.hidden_tag() }}
   <input type="submit" value="Login">
 </form>
+{% endblock %}

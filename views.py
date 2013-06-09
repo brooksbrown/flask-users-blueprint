@@ -12,21 +12,6 @@ from werkzeug import generate_password_hash, check_password_hash
 from database import db
 app = Blueprint('users', __name__, template_folder='templates', url_prefix='/users')
 
-def configure_users_blueprint(app):
-	
-    login_manager = LoginManager()
-    login_manager.setup_app(app, add_context_processor=True)
-
-    @login_manager.user_loader
-    def load_user(userid):
-        print userid
-        user = User.query.get(userid)
-        if user:
-            return FLUserWrapper(user)
-        else:
-            return None
-        pass
-
 @app.route('/<int:user_id>')
 def user_view(user_id):
     user = User.query.filter_by(id=user_id).first()
@@ -121,5 +106,3 @@ def user_debug():
             out += role.name + ", "
         out += ") "
     return out
-
-
